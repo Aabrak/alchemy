@@ -1,0 +1,21 @@
+* {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+body {
+    background-color: rgb(59, 42, 71)
+}
+
+#c {
+    position: absolute;
+    z-index: 1;
+    /* background-color: rgb(26, 26, 26); */
+}
+
+img {
+    position:absolute;
+    z-index: 0;
+    opacity: 0;
+}
