@@ -26,6 +26,12 @@ let Rand = () => {
 	return value;
 };
 
+let RandXY = () => {
+	value = Math.floor(Math.random() * (200 - 10) + 10);
+    console.log(value);
+	return value-100;
+};
+
 // Window resize (full)
 let ResizeWindow = () => {
 	let width = can.width = window.innerWidth;

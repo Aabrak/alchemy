@@ -28,8 +28,8 @@ window.requestAnimationFrame(loop);
 document.addEventListener("keydown", (event) => {
     if (event.keyCode === 32) {
         for (let i = 0; i < par.length; i++) {
-            par[i].vx = Rand();
-            par[i].vy = Rand();
+            par[i].vx = RandXY();
+            par[i].vy = RandXY();
         }
         return;
     }
@@ -37,8 +37,8 @@ document.addEventListener("keydown", (event) => {
 
 document.addEventListener("touchstart", (event) => {
         for (let i = 0; i < par.length; i++) {
-            par[i].vx = Rand();
-            par[i].vy = Rand();
+            par[i].vx = RandXY();
+            par[i].vy = RandXY();
         }
         return;
 });
