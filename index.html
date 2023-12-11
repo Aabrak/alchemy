@@ -2,12 +2,17 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
     <link rel="stylesheet" href="css/main.css">
     <title>Alchemy</title>
 </head>
 <body>
-    <img src="img/catr1.png" id="imug">
+    <div id="ui-menu">
+        <input type="range" min="1" max="100" value="50" class="slider" id="rng1">
+        <input type="range" min="1" max="100" value="50" class="slider" id="rng2">
+        <input type="range" min="1" max="100" value="50" class="slider" id="rng3">
+        <input type="range" min="1" max="100" value="50" class="slider" id="rng4">
+    </div>
     <canvas id="c"></canvas>
     <script src="scripts/engine.js"></script>
     <script src="scripts/particle.js"></script>

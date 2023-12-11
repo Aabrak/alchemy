@@ -19,3 +19,13 @@ img {
     z-index: 0;
     opacity: 0;
 }
+
+#ui-menu {
+    z-index: 2;
+    top: 0px;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
