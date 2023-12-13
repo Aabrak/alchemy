@@ -15,6 +15,7 @@ const rng1 = document.getElementById("rng1");
 const rng2 = document.getElementById("rng2");
 const rng3 = document.getElementById("rng3");
 const rng4 = document.getElementById("rng4");
+const log = document.getElementById("log");
 
 // Global Vars
 var mou = {
@@ -25,7 +26,7 @@ var clickX;
 var clickY;
 var holding = 0;
 var settings = {
-    gravity: 1,
+    gravity: 0.5,
     beep: 0,
 }
 var box = {
@@ -39,6 +40,11 @@ var fps = 1;
 ////
 ////	Functions
 ////
+
+// Visualize value 
+let Vizual = (val) => {
+    log.innerHTML = val;
+}
 
 // Something something cubic
 let SmoothingKernel = (radius, dst) => {
@@ -151,7 +157,7 @@ let getDistance = (ent1, ent2) => {
 
 // Apply Force
 let applyForce = (ent, ang, mag) => {
-    ent.vx = Math.cos(ang * (Math.PI/180))*mag;
-    ent.vy = Math.sin(ang * (Math.PI/180))*mag;
+    ent.vx += Math.cos(ang * (Math.PI/180))*mag;
+    ent.vy += Math.sin(ang * (Math.PI/180))*mag;
 };
 

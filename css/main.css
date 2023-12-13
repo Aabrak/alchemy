@@ -11,7 +11,7 @@ body {
 #c {
     position: absolute;
     z-index: 1;
-    /* background-color: rgb(26, 26, 26); */
+    background-color: rgb(26, 26, 26);
 }
 
 img {
@@ -23,9 +23,13 @@ img {
 #ui-menu {
     z-index: 2;
     top: 0px;
-    display: none;
-    justify-content: center;
-    align-items: center;
+    position: absolute; 
+    /* justify-content: center; */
+    /* align-items: center; */
     color: white;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+#log {
+
 }

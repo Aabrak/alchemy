@@ -7,9 +7,10 @@ class Particle {
         this.vx = 0;
         this.vy = 0;
         this.vel = 0;
-        this.density = radius*2;
+        this.density = radius*4;
         this.mass = mass;
         this.color = color;
+        this.repelForce = 10;
 
         console.log("A particle has been created!")
         this.render();
@@ -47,18 +48,20 @@ class Particle {
         this.x += this.vx;
         this.y += this.vy;
         this.gravity();
+        // this.applyForce(0, 10)
 
         let tempVx = this.vx;
         let tempVy = this.vy;
-        this.vx < 1 ? tempVx = -tempVx : false;
-        this.vy < 1 ? tempVy = -tempVy : false;
+        // this.vx < 1 ? tempVx = -tempVx : false;
+        // this.vy < 1 ? tempVy = -tempVy : false;
         this.vel=tempVx+tempVy;
     }
 
     friction() {
-        // if(this.vel > 1) {
-            this.vx*=0.995;
-            this.vy*=0.995;
+        // NEED TO OPTIMIZE !!
+        // if(this.vel > 0.01) {
+            this.vx*=0.98;
+            this.vy*=0.98;
         // }
     }
 
@@ -77,18 +80,18 @@ class Particle {
 
     burn() {
         if(this.vel > 0.1) {
-            this.color = `rgba(${Math.floor(this.vel*8)}, 100, 200)`;
+            this.color = `rgba(${Math.floor(this.vel*50)}, 100, 200)`;
         }
     }
 
     gravity() {
-        this.y > 0.1 ? this.vy += settings.gravity : this.vy = 0;
+        this.y > 0.1 ? this.vy += settings.gravity/10 : this.vy = 0;
     }
 
     denseForce(ent) {
-        if(getDistance(this, ent) <= this.density*0.92) {
-            let pushForce = this.density - getDistance(this, ent);
-            this.applyForce(angleComparator(this, ent), -pushForce/4);
+        if(getDistance(this, ent) <= this.density) {
+            let pushForce = this.repelForce*this.density/getDistance(this, ent);
+            this.applyForce(angleComparator(this, ent), -pushForce/40);
         }
     }
 
