@@ -20,7 +20,6 @@ class Particle {
         drawCircle(this.x, this.y, this.radius, this.color);
     }
     
-    
     // Keeps the particle in said parent (Rectangle)
     parentBounce(parent) {
         if(this.x+this.radius > parent.width || this.x-this.radius < 0) {
@@ -52,16 +51,16 @@ class Particle {
 
         let tempVx = this.vx;
         let tempVy = this.vy;
-        // this.vx < 1 ? tempVx = -tempVx : false;
-        // this.vy < 1 ? tempVy = -tempVy : false;
-        this.vel=tempVx+tempVy;
+        this.vx < 1 ? tempVx = -tempVx : false;
+        this.vy < 1 ? tempVy = -tempVy : false;
+        this.vel = tempVx + tempVy ;
     }
 
     friction() {
         // NEED TO OPTIMIZE !!
         // if(this.vel > 0.01) {
-            this.vx*=0.98;
-            this.vy*=0.98;
+            this.vx*=0.97;
+            this.vy*=0.97;
         // }
     }
 
@@ -79,18 +78,20 @@ class Particle {
     }
 
     burn() {
-        if(this.vel > 0.1) {
-            this.color = `rgba(${Math.floor(this.vel*50)}, 100, 200)`;
-        }
+        // if(this.vel > 0.1) {
+            this.color = `rgba(${Math.floor(this.vel*60)}, 100, 200)`;
+        // }
     }
 
     gravity() {
-        this.y > 0.1 ? this.vy += settings.gravity/10 : this.vy = 0;
+        // this.y > 0.1 ? this.vy += settings.gravity/4 : this.vy = 0;
+        this.applyForce(90, settings.gravity/4);
     }
 
     denseForce(ent) {
         if(getDistance(this, ent) <= this.density) {
             let pushForce = this.repelForce*this.density/getDistance(this, ent);
+            // pushForce = SmoothingKernel(this.radius, getDistance(this, ent));
             this.applyForce(angleComparator(this, ent), -pushForce/40);
         }
     }

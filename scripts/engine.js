@@ -49,7 +49,7 @@ let Vizual = (val) => {
 // Something something cubic
 let SmoothingKernel = (radius, dst) => {
 	value = Math.max(0, radius - dst);
-	return value * value * value;
+	return value * value;
 }
 
 // Permanent randomizer

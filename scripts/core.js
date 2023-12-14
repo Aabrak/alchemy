@@ -1,5 +1,5 @@
 let par = [];
-for (let i = 0; i < 700; i++) {
+for (let i = 0; i < 300; i++) {
     par.push(new Particle(Rand()*3, Rand()*3, 10));
 }
 par[0].color = "#00f";
@@ -25,7 +25,7 @@ let loop = () => {
             (i != j) ? par[i].denseForce(par[j]) : false;
         }
         
-        Vizual(20*par[0].density/getDistance(par[0], par[1]));
+        // Vizual(par[0].vel);
         
         // par[i].radius = rng2.value;
         
