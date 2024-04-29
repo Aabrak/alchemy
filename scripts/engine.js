@@ -28,6 +28,7 @@ var holding = 0;
 var settings = {
     gravity: 0.5,
     beep: 0,
+    vortexSize: 200,
 }
 var box = {
     x: can.width/2,

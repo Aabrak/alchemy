@@ -79,7 +79,7 @@ class Particle {
 
     burn() {
         // if(this.vel > 0.1) {
-            this.color = `rgba(${Math.floor(this.vel*60)}, 100, 200)`;
+            this.color = `rgb( ${Math.floor(this.vel*10)}, ${Math.floor(this.vel*20)}, ${Math.floor(this.vel*25)} )`;
         // }
     }
 
@@ -90,6 +90,7 @@ class Particle {
 
     denseForce(ent) {
         if(getDistance(this, ent) <= this.density) {
+            this.friction();
             let pushForce = this.repelForce*this.density/getDistance(this, ent);
             // pushForce = SmoothingKernel(this.radius, getDistance(this, ent));
             this.applyForce(angleComparator(this, ent), -pushForce/40);
